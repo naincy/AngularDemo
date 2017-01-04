@@ -32,10 +32,6 @@ app.controller('signInCtrl', function ($scope) {
     $scope.isHidden = true;
     $scope.hideTopHeader = true;
 
-    $scope.showHide = function () {
-        $scope.isHidden = $scope.isHidden ? false : true;
-    }
-
     // Detect scroll
     $(window).scroll(function (event) {
         var scroll = $(window).scrollTop();
@@ -43,6 +39,7 @@ app.controller('signInCtrl', function ($scope) {
 
             if(scroll > 200 || scroll === undefined) {
                 $scope.hideTopHeader = false;
+                $scope.isHidden = true;
             } else {
                 $scope.hideTopHeader = true;
             }
@@ -51,6 +48,15 @@ app.controller('signInCtrl', function ($scope) {
                 $scope.$apply();
             }
     });
+
+    $scope.showHide = function () {
+        if ($scope.hideTopHeader) {
+            $scope.hideTopHeader = false;
+        }
+
+        $scope.isHidden = $scope.isHidden ? false : true;
+    }
+
 });
 
 app.controller('catalogueCtrl', function($scope, $http) {

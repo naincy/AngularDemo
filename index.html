@@ -18,8 +18,9 @@
 
 <body id="page-top" class="index" ng-app="ekcApp">
 
+<div ng-controller="signInCtrl">
     <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom" ng-controller="signInCtrl" ng-hide="hideTopHeader">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom" ng-hide="hideTopHeader">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -90,12 +91,13 @@
                     <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
                         <span class="name">Landing Page : Using AngularJs</span>
-                        <span class="skills"> Login</span>
+                        <span class="skills" ng-click="showHide()"> Login</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+</div>
 
     <!-- Portfolio Grid Section -->
     <section id="portfolio">
