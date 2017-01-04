@@ -43,21 +43,37 @@
 
 })(jQuery); // End of use strict
 
+// Angular Js
 var app = angular.module('ekcApp', []);
     
-app.controller('SignInController', function ($scope) {
+app.controller('signInCtrl', function ($scope) {
     //This will hide the DIV by default.
-    $scope.IsHidden = true;
-    $scope.ShowHide = function () {
+    $scope.isHidden = true;
+    $scope.showHide = function () {
         //If DIV is hidden it will be visible and vice versa.
-        $scope.IsHidden = $scope.IsHidden ? false : true;
+        $scope.isHidden = $scope.isHidden ? false : true;
     }
+
+    // Detect scroll
+    $(window).scroll(function (event) {
+        var scroll = $(window).scrollTop();
+        var oldState = $scope.showTopHeader;
+
+            if(scroll > 200 || scroll === undefined) {
+                $scope.showTopHeader = false;
+            } else {
+                $scope.showTopHeader = true;
+            }
+
+            if($scope.showTopHeader !== oldState) {
+                $scope.$apply();
+            }
+    });
 });
 
 app.controller('catalogueCtrl', function($scope, $http) {
-    $http.get("http://ekcplatform.com/catalogue_data.php")
+    $http.get('http://ekcplatform.com/catalogue_data.php')
     .then(function (response) {
         $scope.catalogue = response.data.catalogueData;
     });
 });
-
