@@ -73,7 +73,7 @@ header {
   color: white;
 }
 header .container {
-  padding-top: 100px;
+  padding-top: 65px;
   padding-bottom: 50px;
 }
 header img {
@@ -93,11 +93,10 @@ header .intro-text .skills {
 }
 @media (min-width: 768px) {
   header .container {
-    padding-top: 200px;
-    padding-bottom: 100px;
+    padding-bottom: 60px;
   }
   header .intro-text .name {
-    font-size: 4.75em;
+    font-size: 3em;
   }
   header .intro-text .skills {
     font-size: 1.75em;
@@ -172,7 +171,7 @@ header .intro-text .skills {
     transition: all 0.3s;
   }
   .navbar-custom.affix {
-    padding: 10px 0;
+    padding: 0px 0;
   }
   .navbar-custom.affix .navbar-brand {
     font-size: 1.5em;
@@ -244,52 +243,6 @@ section.success {
   #portfolio .portfolio-item {
     margin: 0 0 30px;
   }
-}
-.floating-label-form-group {
-  position: relative;
-  margin-bottom: 0;
-  padding-bottom: 0.5em;
-  border-bottom: 1px solid #eeeeee;
-}
-.floating-label-form-group input,
-.floating-label-form-group textarea {
-  z-index: 1;
-  position: relative;
-  padding-right: 0;
-  padding-left: 0;
-  border: none;
-  border-radius: 0;
-  font-size: 1.5em;
-  background: none;
-  box-shadow: none !important;
-  resize: none;
-}
-.floating-label-form-group label {
-  display: block;
-  z-index: 0;
-  position: relative;
-  top: 2em;
-  margin: 0;
-  font-size: 0.85em;
-  line-height: 1.764705882em;
-  vertical-align: middle;
-  vertical-align: baseline;
-  opacity: 0;
-  -webkit-transition: top 0.3s ease,opacity 0.3s ease;
-  -moz-transition: top 0.3s ease,opacity 0.3s ease;
-  -ms-transition: top 0.3s ease,opacity 0.3s ease;
-  transition: top 0.3s ease,opacity 0.3s ease;
-}
-.floating-label-form-group:not(:first-child) {
-  padding-left: 14px;
-  border-left: 1px solid #eeeeee;
-}
-.floating-label-form-group-with-value label {
-  top: 0;
-  opacity: 1;
-}
-.floating-label-form-group-with-focus label {
-  color: #18BC9C;
 }
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
@@ -499,6 +452,6 @@ fieldset[disabled] .btn-success.active {
   opacity: 0;
   display: none;
 }
-.margin-top10 {
-  margin-top: 10px;
+#mainNav {
+  height: 10px;
 }
