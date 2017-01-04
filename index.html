@@ -18,8 +18,9 @@
 
 <body id="page-top" class="index" ng-app="ekcApp">
 
+<div ng-controller="signInCtrl">
     <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom" ng-controller="SignInController">
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom" ng-hide="hideTopHeader">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -36,7 +37,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="">
-                        <a ng-click="ShowHide()"> SignIn<a/>
+                        <a ng-click="showHide()"> SignIn<a/>
                     </li>
                 </ul>
             </div>
@@ -45,7 +46,7 @@
         <!-- /.container-fluid -->
 
         <!-- SignIn Modal -->
-        <div class="portfolio-modal" ng-hide = "IsHidden">
+        <div class="portfolio-modal" ng-hide = "isHidden">
             <div class="modal-content">
                 <div class="container">
                     <div class="row">
@@ -90,11 +91,13 @@
                     <img class="img-responsive" src="img/profile.png" alt="">
                     <div class="intro-text">
                         <span class="name">Landing Page : Using AngularJs</span>
+                        <span class="skills" ng-click="showHide()"> Login</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+</div>
 
     <!-- Portfolio Grid Section -->
     <section id="portfolio">

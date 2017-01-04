@@ -1,4 +1,3 @@
-// Freelancer Theme JavaScript
 
 (function($) {
     "use strict"; // Start of use strict
@@ -23,41 +22,46 @@
             $('.navbar-toggle:visible').click();
     });
 
-    // Offset for Main Navigation
-    $('#mainNav').affix({
-        offset: {
-            top: 100
-        }
-    })
-
-    // Floating label headings for the contact form
-    $(function() {
-        $("body").on("input propertychange", ".floating-label-form-group", function(e) {
-            $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
-        }).on("focus", ".floating-label-form-group", function() {
-            $(this).addClass("floating-label-form-group-with-focus");
-        }).on("blur", ".floating-label-form-group", function() {
-            $(this).removeClass("floating-label-form-group-with-focus");
-        });
-    });
-
 })(jQuery); // End of use strict
 
+// Angular Js
 var app = angular.module('ekcApp', []);
     
-app.controller('SignInController', function ($scope) {
-    //This will hide the DIV by default.
-    $scope.IsHidden = true;
-    $scope.ShowHide = function () {
-        //If DIV is hidden it will be visible and vice versa.
-        $scope.IsHidden = $scope.IsHidden ? false : true;
+app.controller('signInCtrl', function ($scope) {
+    // Hide by default
+    $scope.isHidden = true;
+    $scope.hideTopHeader = true;
+
+    // Detect scroll
+    $(window).scroll(function (event) {
+        var scroll = $(window).scrollTop();
+        var oldState = $scope.hideTopHeader;
+
+            if(scroll > 200 || scroll === undefined) {
+                $scope.hideTopHeader = false;
+                $scope.isHidden = true;
+            } else {
+                $scope.hideTopHeader = true;
+            }
+
+            if($scope.hideTopHeader !== oldState) {
+                $scope.$apply();
+            }
+    });
+
+    $scope.showHide = function () {
+        if ($scope.hideTopHeader) {
+            $scope.hideTopHeader = false;
+        }
+
+        $scope.isHidden = $scope.isHidden ? false : true;
     }
+
 });
 
 app.controller('catalogueCtrl', function($scope, $http) {
-    $http.get("http://ekcplatform.com/catalogue_data.php")
+    $http.get('http://ekcplatform.com/catalogue_data.php')
     .then(function (response) {
         $scope.catalogue = response.data.catalogueData;
     });
 });
-
