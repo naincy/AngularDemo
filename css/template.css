@@ -73,7 +73,7 @@ header {
   color: white;
 }
 header .container {
-  padding-top: 100px;
+  padding-top: 65px;
   padding-bottom: 50px;
 }
 header img {
@@ -96,7 +96,7 @@ header .intro-text .skills {
     padding-bottom: 60px;
   }
   header .intro-text .name {
-    font-size: 4.75em;
+    font-size: 3em;
   }
   header .intro-text .skills {
     font-size: 1.75em;
