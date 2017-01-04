@@ -1,4 +1,3 @@
-// Freelancer Theme JavaScript
 
 (function($) {
     "use strict"; // Start of use strict
@@ -23,49 +22,32 @@
             $('.navbar-toggle:visible').click();
     });
 
-    // Offset for Main Navigation
-    $('#mainNav').affix({
-        offset: {
-            top: 100
-        }
-    })
-
-    // Floating label headings for the contact form
-    $(function() {
-        $("body").on("input propertychange", ".floating-label-form-group", function(e) {
-            $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
-        }).on("focus", ".floating-label-form-group", function() {
-            $(this).addClass("floating-label-form-group-with-focus");
-        }).on("blur", ".floating-label-form-group", function() {
-            $(this).removeClass("floating-label-form-group-with-focus");
-        });
-    });
-
 })(jQuery); // End of use strict
 
 // Angular Js
 var app = angular.module('ekcApp', []);
     
 app.controller('signInCtrl', function ($scope) {
-    //This will hide the DIV by default.
+    // Hide by default
     $scope.isHidden = true;
+    $scope.hideTopHeader = true;
+
     $scope.showHide = function () {
-        //If DIV is hidden it will be visible and vice versa.
         $scope.isHidden = $scope.isHidden ? false : true;
     }
 
     // Detect scroll
     $(window).scroll(function (event) {
         var scroll = $(window).scrollTop();
-        var oldState = $scope.showTopHeader;
+        var oldState = $scope.hideTopHeader;
 
             if(scroll > 200 || scroll === undefined) {
-                $scope.showTopHeader = false;
+                $scope.hideTopHeader = false;
             } else {
-                $scope.showTopHeader = true;
+                $scope.hideTopHeader = true;
             }
 
-            if($scope.showTopHeader !== oldState) {
+            if($scope.hideTopHeader !== oldState) {
                 $scope.$apply();
             }
     });
